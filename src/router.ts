@@ -1,4 +1,4 @@
-import { Express } from 'express';
+import { Express, Request, Response } from 'express';
 
 import { getNextLesson } from './utils/getNextLesson';
 import { replyMessage } from './utils/replyMessage';
@@ -7,12 +7,12 @@ import { replyMessage } from './utils/replyMessage';
  * エンドポイント 登録
  */
 export const registRoute = (app: Express) => {
-  app.get('/', (_, res) => {
+  app.get('/', (_, res: Response) => {
     res.send('Hello World');
   });
 
   // LINE Webhook
-  app.post('/webhook', async (req, res) => {
+  app.post('/webhook', async (req: Request, res: Response) => {
     const events = req?.body?.events;
     if (events.length > 0) {
       const messageText = events[0].message?.text;
