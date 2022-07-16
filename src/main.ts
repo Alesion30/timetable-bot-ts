@@ -5,7 +5,7 @@ import { resistMidleware } from './midleware';
 import { registRoute } from './router';
 
 /** express app */
-const app = resistMidleware(registRoute(express()));
+const app = registRoute(resistMidleware(express()));
 
 // start server
 app.listen(PORT, () => {
