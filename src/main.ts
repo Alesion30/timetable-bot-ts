@@ -1,24 +1,13 @@
-import express, { Express } from 'express';
+import express from 'express';
 
 import { PORT } from './constants/env';
+import { resistMidleware } from './midleware';
+import { registRoute } from './router';
 
-const midleware = (app: Express) => {
-  app.use(express.json());
-  app.use(
-    express.urlencoded({
-      extended: true,
-    })
-  );
-  return app;
-};
+/** express app */
+const app = resistMidleware(registRoute(express()));
 
-const app = midleware(express());
-
-app.get('/', (req, res) => {
-  console.log(PORT);
-  res.send('Hello World');
-});
-
+// start server
 app.listen(PORT, () => {
   console.log(`Running at http://localhost:${PORT}`);
 });
