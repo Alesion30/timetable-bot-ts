@@ -2,6 +2,7 @@
   "name": "timetable-bot-ts",
   "version": "1.0.0",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "watch": "nodemon",
     "build": "tsc",
