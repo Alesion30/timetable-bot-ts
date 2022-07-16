@@ -20,8 +20,7 @@ export const replyMessage = async (text: string, replyToken: string) => {
   };
 
   // LINEサーバーにデータを送信
-  await axios.post('https://api.line.me/v2/bot/message/reply', {
-    body: JSON.stringify(postData),
+  await axios.post('https://api.line.me/v2/bot/message/reply', postData, {
     headers: {
       Authorization: `Bearer ${LINE_CHANNEL_ACCESS_TOKEN}`,
     },
