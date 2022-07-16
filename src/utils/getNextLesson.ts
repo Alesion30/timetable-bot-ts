@@ -1,4 +1,4 @@
-import spring1 from '../data/spring1.json';
+import spring1 from '../data/spring1.json' assert { type: 'json' };
 
 import { getNextPeriod } from './getNextPeriod';
 
