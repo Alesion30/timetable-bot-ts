@@ -1,5 +1,7 @@
 import express, { Express } from 'express';
 
+import { PORT } from './constants/env';
+
 const midleware = (app: Express) => {
   app.use(express.json());
   app.use(
@@ -12,12 +14,11 @@ const midleware = (app: Express) => {
 
 const app = midleware(express());
 
-const PORT = process.env.PORT || 3000;
-
 app.get('/', (req, res) => {
+  console.log(PORT);
   res.send('Hello World');
 });
 
 app.listen(PORT, () => {
-  console.log('Running at http://localhost:3000');
+  console.log(`Running at http://localhost:${PORT}`);
 });
